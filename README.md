@@ -1,18 +1,3 @@
-# Hotel project  for AdminLTE Theme
-
-- Signup
-- Login
-- Forgot Password
-- Password Reset
-- Home Layout with Sidebar
-
-## Packages Installed
-
-- InfyOm Laravel Generator
-- AdminLTE Templates
-- Laravel UI
-- Laravel Collective
-
 ## Usage
 
 1. Clone/Download a repo.
