@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
                 $item->calificacion = rand($min = 1, $max = 10);
             }
         });
-        //Por cada registro un Servicio: necesita medio pago
+        //Por cada reserva un Servicio: necesita medio pago
         \App\Models\MedioPago::factory(5)->create();
 
         \App\Models\Servicio::factory(3000)->create()->each(function ($item, $key)
