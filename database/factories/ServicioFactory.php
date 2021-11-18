@@ -23,7 +23,7 @@ class ServicioFactory extends Factory
     {
         $fecha = $this->faker->dateTimeThisYear($max='now');
         $estado = $this->faker->numberBetween($min = 1, $max = 3);
-        $n1 = $this->faker->unique()->numberBetween($min = 1, $max = 100000);//->unique()
+        $n1 = $this->faker->unique()->numberBetween($min = 1, $max = 100);//->unique()
         //$n2 = $this->faker->numberBetween($min = 1, $max = 50000);
         return [
             'reserva_id' => $n1,

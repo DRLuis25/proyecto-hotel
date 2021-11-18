@@ -24,7 +24,7 @@ class ReservaFactory extends Factory
         $fecha = $this->faker->dateTimeThisYear($max='now');
         return [
             'habitacion_id' => $this->faker->numberBetween($min = 1, $max = 30),
-            'cliente_id' => $this->faker->numberBetween($min = 1, $min = 2000),
+            'cliente_id' => $this->faker->numberBetween($min = 1, $min = 5000),
             'estado' => $this->faker->numberBetween($min = 1, $max = 3),
             'created_at' => $fecha,
             'updated_at' => $fecha,
