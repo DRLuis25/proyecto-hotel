@@ -93,10 +93,6 @@
     },
     {
         "type": "relation",
-        "relation": "1tm,Servicio,registro_id"
-    },
-    {
-        "type": "relation",
-        "relation": "1tm,Valoracione,registro_id"
+        "relation": "1tm,Servicio,reserva_id"
     }
 ]

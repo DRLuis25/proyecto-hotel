@@ -19,23 +19,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class Valoracion extends Model
 {
-    use SoftDeletes;
 
     use HasFactory;
 
     public $table = 'valoraciones';
-    
-    const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_at';
-
-
-    protected $dates = ['deleted_at'];
+    public $timestamps = false;
 
 
 
     public $fillable = [
         'criterio_id',
-        'registro_id',
+        'reserva_id',
         'valor'
     ];
 

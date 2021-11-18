@@ -9,23 +9,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class ServicioDetalle
  * @package App\Models
- * @version November 11, 2021, 4:48 am UTC
+ * @version November 17, 2021, 8:41 pm UTC
  *
  * @property \App\Models\Producto $producto
  * @property \App\Models\Servicio $servicio
  * @property integer $servicio_id
  * @property integer $producto_id
  * @property number $precio
- * @property integer $cantidad
  */
 class ServicioDetalle extends Model
 {
-    use SoftDeletes;
 
     use HasFactory;
 
     public $table = 'servicio_detalles';
-    
+    public $timestamps = false;
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -37,8 +35,7 @@ class ServicioDetalle extends Model
     public $fillable = [
         'servicio_id',
         'producto_id',
-        'precio',
-        'cantidad'
+        'precio'
     ];
 
     /**
@@ -49,8 +46,7 @@ class ServicioDetalle extends Model
     protected $casts = [
         'servicio_id' => 'integer',
         'producto_id' => 'integer',
-        'precio' => 'decimal:2',
-        'cantidad' => 'integer'
+        'precio' => 'decimal:2'
     ];
 
     /**
@@ -61,8 +57,7 @@ class ServicioDetalle extends Model
     public static $rules = [
         'servicio_id' => 'required',
         'producto_id' => 'required',
-        'precio' => 'required|numeric',
-        'cantidad' => 'required|integer'
+        'precio' => 'required|numeric'
     ];
 
     /**

@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\API;
 
-use App\Models\Registro;
+use App\Models\Reserva;
 use InfyOm\Generator\Request\APIRequest;
 
-class CreateRegistroAPIRequest extends APIRequest
+class CreateReservaAPIRequest extends APIRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,6 +24,6 @@ class CreateRegistroAPIRequest extends APIRequest
      */
     public function rules()
     {
-        return Registro::$rules;
+        return Reserva::$rules;
     }
 }

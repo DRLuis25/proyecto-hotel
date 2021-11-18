@@ -21,11 +21,12 @@ class MedioPagoFactory extends Factory
      */
     public function definition()
     {
+        $fecha = $this->faker->dateTimeThisDecade($max='now');
         return [
             'descripcion' => $this->faker->word,
-        'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s'),
-        'deleted_at' => $this->faker->date('Y-m-d H:i:s')
+            'created_at' => $fecha,
+            'updated_at' => $fecha,
+            'deleted_at' => null
         ];
     }
 }

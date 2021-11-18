@@ -21,19 +21,24 @@ class ServicioFactory extends Factory
      */
     public function definition()
     {
+        $fecha = $this->faker->dateTimeThisYear($max='now');
+        $estado = $this->faker->numberBetween($min = 1, $max = 3);
+        $n1 = $this->faker->unique()->numberBetween($min = 1, $max = 100000);//->unique()
+        //$n2 = $this->faker->numberBetween($min = 1, $max = 50000);
         return [
-            'cliente_id' => $this->faker->word,
-            'empleado_id' => $this->faker->word,
-            'medio_pago_id' => $this->faker->word,
-            'comentario' => $this->faker->word,
-            'subtotal' => $this->faker->word,
-            'igv' => $this->faker->word,
-            'stock' => $this->faker->randomDigitNotNull,
-            'fecha' => $this->faker->date('Y-m-d H:i:s'),
-            'estado' => $this->faker->word,
-            'created_at' => $this->faker->date('Y-m-d H:i:s'),
-            'updated_at' => $this->faker->date('Y-m-d H:i:s'),
-            'deleted_at' => $this->faker->date('Y-m-d H:i:s')
+            'reserva_id' => $n1,
+            'empleado_id' => $this->faker->numberBetween($min = 1, $max = 2000),
+            'medio_pago_id' => $this->faker->numberBetween($min = 1, $max = 5),
+            'comentario' => $this->faker->paragraph($nb = 3),
+            'subtotal' => 0,
+            'igv' => 0,
+            'fecha_entrada' => $fecha,
+            'fecha_salida' => $fecha,
+            'estado' => $estado,
+            'calificacion' => $this->faker->numberBetween($min = 1, $max = 10),
+            'created_at' => $fecha,
+            'updated_at' => $fecha,
+            'deleted_at' => null
         ];
     }
 }

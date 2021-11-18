@@ -1,8 +1,8 @@
 <?php
 
 return array (
-  'singular' => 'Registro',
-  'plural' => 'Registros',
+  'singular' => 'Reserva',
+  'plural' => 'Reservas',
   'fields' => 
   array (
     'id' => 'Id',

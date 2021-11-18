@@ -9,15 +9,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Habitacion
  * @package App\Models
- * @version November 11, 2021, 4:46 am UTC
+ * @version November 17, 2021, 8:26 pm UTC
  *
  * @property \App\Models\Clasificacione $clasificacion
  * @property \Illuminate\Database\Eloquent\Collection $incidencias
- * @property \Illuminate\Database\Eloquent\Collection $registros
+ * @property \Illuminate\Database\Eloquent\Collection $reservas
  * @property integer $clasificacion_id
  * @property boolean $disponible
- * @property integer $cantidad_personas
- * @property string|\Carbon\Carbon $fecha_registro
+ * @property integer $piso
+ * @property number $costo
+ * @property string $descripcion
  */
 class Habitacion extends Model
 {
@@ -38,8 +39,9 @@ class Habitacion extends Model
     public $fillable = [
         'clasificacion_id',
         'disponible',
-        'cantidad_personas',
-        'fecha_registro'
+        'piso',
+        'costo',
+        'descripcion'
     ];
 
     /**
@@ -51,8 +53,9 @@ class Habitacion extends Model
         'id' => 'integer',
         'clasificacion_id' => 'integer',
         'disponible' => 'boolean',
-        'cantidad_personas' => 'integer',
-        'fecha_registro' => 'datetime'
+        'piso' => 'integer',
+        'costo' => 'float',
+        'descripcion' => 'string'
     ];
 
     /**
@@ -63,8 +66,9 @@ class Habitacion extends Model
     public static $rules = [
         'clasificacion_id' => 'required',
         'disponible' => 'required|boolean',
-        'cantidad_personas' => 'required|integer',
-        'fecha_registro' => 'required',
+        'piso' => 'required|integer',
+        'costo' => 'required|numeric',
+        'descripcion' => 'nullable|string',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
@@ -89,8 +93,8 @@ class Habitacion extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function registros()
+    public function reservas()
     {
-        return $this->hasMany(\App\Models\Registro::class, 'habitacion_id');
+        return $this->hasMany(\App\Models\Reserva::class, 'habitacion_id');
     }
 }

@@ -36,7 +36,7 @@
         "inView": true
     },
     {
-        "name": "cantidad_personas",
+        "name": "piso",
         "dbType": "integer,false",
         "htmlType": null,
         "validations": "required|integer|integer",
@@ -48,10 +48,22 @@
         "inView": true
     },
     {
-        "name": "fecha_registro",
-        "dbType": "datetime",
-        "htmlType": "date",
-        "validations": "required",
+        "name": "costo",
+        "dbType": "float,53,0",
+        "htmlType": null,
+        "validations": "required|numeric|numeric",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "descripcion",
+        "dbType": "string:nullable",
+        "htmlType": "text",
+        "validations": "nullable|string|nullable|string",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -105,6 +117,6 @@
     },
     {
         "type": "relation",
-        "relation": "1tm,Registro,habitacion_id"
+        "relation": "1tm,Reserva,habitacion_id"
     }
 ]

@@ -9,21 +9,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class Servicio
  * @package App\Models
- * @version November 11, 2021, 4:48 am UTC
+ * @version November 17, 2021, 8:37 pm UTC
  *
- * @property \App\Models\Cliente $cliente
+ * @property \App\Models\Reserva $reserva
  * @property \App\Models\MedioPago $medioPago
  * @property \App\Models\Empleado $empleado
  * @property \Illuminate\Database\Eloquent\Collection $productos
- * @property integer $cliente_id
+ * @property integer $reserva_id
  * @property integer $empleado_id
  * @property integer $medio_pago_id
  * @property string $comentario
  * @property number $subtotal
  * @property number $igv
- * @property integer $stock
- * @property string|\Carbon\Carbon $fecha
+ * @property string|\Carbon\Carbon $fecha_entrada
+ * @property string|\Carbon\Carbon $fecha_salida
  * @property string $estado
+ * @property integer $calificacion
  */
 class Servicio extends Model
 {
@@ -42,15 +43,16 @@ class Servicio extends Model
 
 
     public $fillable = [
-        'cliente_id',
+        'reserva_id',
         'empleado_id',
         'medio_pago_id',
         'comentario',
         'subtotal',
         'igv',
-        'stock',
-        'fecha',
-        'estado'
+        'fecha_entrada',
+        'fecha_salida',
+        'estado',
+        'calificacion'
     ];
 
     /**
@@ -60,15 +62,16 @@ class Servicio extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'cliente_id' => 'integer',
+        'reserva_id' => 'integer',
         'empleado_id' => 'integer',
         'medio_pago_id' => 'integer',
         'comentario' => 'string',
         'subtotal' => 'decimal:2',
         'igv' => 'decimal:2',
-        'stock' => 'integer',
-        'fecha' => 'datetime',
-        'estado' => 'string'
+        'fecha_entrada' => 'datetime',
+        'fecha_salida' => 'datetime',
+        'estado' => 'string',
+        'calificacion' => 'integer'
     ];
 
     /**
@@ -77,15 +80,16 @@ class Servicio extends Model
      * @var array
      */
     public static $rules = [
-        'cliente_id' => 'required',
+        'reserva_id' => 'required',
         'empleado_id' => 'required',
         'medio_pago_id' => 'required',
-        'comentario' => 'nullable|string|max:255',
+        'comentario' => 'nullable|string',
         'subtotal' => 'required|numeric',
         'igv' => 'required|numeric',
-        'stock' => 'required|integer',
-        'fecha' => 'required',
+        'fecha_entrada' => 'required',
+        'fecha_salida' => 'required',
         'estado' => 'required|string|max:1',
+        'calificacion' => 'required|integer',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
@@ -94,9 +98,9 @@ class Servicio extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function cliente()
+    public function reserva()
     {
-        return $this->belongsTo(\App\Models\Cliente::class, 'cliente_id');
+        return $this->belongsTo(\App\Models\Reserva::class, 'reserva_id');
     }
 
     /**

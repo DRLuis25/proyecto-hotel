@@ -24,7 +24,6 @@ class ClasificacionFactory extends Factory
         $fecha = $this->faker->dateTimeThisMonth($max='now');
         return [
             'descripcion' => $this->faker->paragraph($nb = 1),
-            'valor' => $this->faker->numberBetween($min = 1,$max = 5),
             'created_at' => $fecha,
             'updated_at' => $fecha,
             'deleted_at' => null

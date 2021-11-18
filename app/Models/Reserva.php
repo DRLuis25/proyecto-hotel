@@ -7,24 +7,24 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class Registro
+ * Class Reserva
  * @package App\Models
- * @version November 11, 2021, 4:47 am UTC
+ * @version November 17, 2021, 8:35 pm UTC
  *
  * @property \App\Models\Habitacione $habitacion
  * @property \App\Models\Cliente $cliente
- * @property \Illuminate\Database\Eloquent\Collection $valoraciones
+ * @property \Illuminate\Database\Eloquent\Collection $servicios
  * @property integer $habitacion_id
  * @property integer $cliente_id
- * @property integer $peso
+ * @property integer $estado
  */
-class Registro extends Model
+class Reserva extends Model
 {
     use SoftDeletes;
 
     use HasFactory;
 
-    public $table = 'registros';
+    public $table = 'reservas';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -37,7 +37,7 @@ class Registro extends Model
     public $fillable = [
         'habitacion_id',
         'cliente_id',
-        'peso'
+        'estado'
     ];
 
     /**
@@ -49,7 +49,7 @@ class Registro extends Model
         'id' => 'integer',
         'habitacion_id' => 'integer',
         'cliente_id' => 'integer',
-        'peso' => 'integer'
+        'estado' => 'integer'
     ];
 
     /**
@@ -60,7 +60,7 @@ class Registro extends Model
     public static $rules = [
         'habitacion_id' => 'required',
         'cliente_id' => 'required',
-        'peso' => 'required|integer',
+        'estado' => 'required|integer',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
@@ -85,8 +85,8 @@ class Registro extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function valoraciones()
+    public function servicios()
     {
-        return $this->hasMany(\App\Models\Valoracione::class, 'registro_id');
+        return $this->hasMany(\App\Models\Servicio::class, 'reserva_id');
     }
 }

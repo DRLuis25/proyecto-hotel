@@ -35,7 +35,7 @@ Route::resource('habitacions', App\Http\Controllers\API\HabitacionAPIController:
 
 Route::resource('clientes', App\Http\Controllers\API\ClienteAPIController::class);
 
-Route::resource('registros', App\Http\Controllers\API\RegistroAPIController::class);
+
 
 Route::resource('productos', App\Http\Controllers\API\ProductoAPIController::class);
 
@@ -50,3 +50,5 @@ Route::resource('areas', App\Http\Controllers\API\AreaAPIController::class);
 Route::resource('cargos', App\Http\Controllers\API\CargoAPIController::class);
 
 Route::resource('empleados', App\Http\Controllers\API\EmpleadoAPIController::class);
+
+Route::resource('reservas', App\Http\Controllers\API\ReservaAPIController::class);

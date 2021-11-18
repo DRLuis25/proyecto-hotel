@@ -23,9 +23,8 @@ class ServicioDetalleFactory extends Factory
     {
         return [
             'servicio_id' => $this->faker->word,
-        'producto_id' => $this->faker->word,
-        'precio' => $this->faker->word,
-        'cantidad' => $this->faker->randomDigitNotNull
+            'producto_id' => $this->faker->numberBetween($min = 1,$max = 10000),
+            'precio' => $this->faker->numberBetween($min = 1,$max = 100),
         ];
     }
 }

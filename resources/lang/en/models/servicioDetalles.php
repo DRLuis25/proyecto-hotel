@@ -8,6 +8,5 @@ return array (
     'servicio_id' => 'Servicio Id',
     'producto_id' => 'Producto Id',
     'precio' => 'Precio',
-    'cantidad' => 'Cantidad',
   ),
 );

@@ -24,12 +24,13 @@ class HabitacionFactory extends Factory
         $fecha = $this->faker->dateTimeThisMonth($max='now');
         return [
             'clasificacion_id' => $this->faker->numberBetween($min = 1,$max = 2),
-            'disponible' => $this->faker->boolean($chanceOfGettingTrue = 50),
-            'cantidad_personas' => $this->faker->numberBetween($min = 1,$max = 3),
-            'fecha_registro' => $this->faker->dateTimeThisYear($max = 'now'),
-            'created_at' => $fecha,
-            'updated_at' => $fecha,
-            'deleted_at' => null
+        'disponible' => $this->faker->boolean($chanceOfGettingTrue = 50),
+        'piso' => $this->faker->numberBetween($min = 1,$max = 2),
+        'costo' => $this->faker->numberBetween($min = 24,$max = 80),
+        'descripcion' => $this->faker->text,
+        'created_at' => $fecha,
+        'updated_at' => $fecha,
+        'deleted_at' => null
         ];
     }
 }

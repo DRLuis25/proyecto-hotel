@@ -23,8 +23,8 @@ class ValoracionFactory extends Factory
     {
         return [
             'criterio_id' => $this->faker->word,
-        'registro_id' => $this->faker->word,
-        'valor' => $this->faker->randomDigitNotNull
+            'registro_id' => $this->faker->word,
+            'valor' => $this->faker->randomDigitNotNull
         ];
     }
 }

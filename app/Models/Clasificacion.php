@@ -22,7 +22,7 @@ class Clasificacion extends Model
     use HasFactory;
 
     public $table = 'clasificaciones';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -33,7 +33,6 @@ class Clasificacion extends Model
 
     public $fillable = [
         'descripcion',
-        'valor'
     ];
 
     /**
@@ -44,7 +43,6 @@ class Clasificacion extends Model
     protected $casts = [
         'id' => 'integer',
         'descripcion' => 'string',
-        'valor' => 'integer'
     ];
 
     /**
@@ -54,7 +52,6 @@ class Clasificacion extends Model
      */
     public static $rules = [
         'descripcion' => 'required|string|max:255',
-        'valor' => 'required|integer',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'

@@ -24,7 +24,7 @@ class Producto extends Model
     use HasFactory;
 
     public $table = 'productos';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -37,7 +37,7 @@ class Producto extends Model
         'nombre',
         'descripcion',
         'precio',
-        'stock'
+
     ];
 
     /**
@@ -50,7 +50,6 @@ class Producto extends Model
         'nombre' => 'string',
         'descripcion' => 'string',
         'precio' => 'decimal:2',
-        'stock' => 'integer'
     ];
 
     /**
@@ -62,7 +61,6 @@ class Producto extends Model
         'nombre' => 'required|string|max:255',
         'descripcion' => 'required|string|max:255',
         'precio' => 'required|numeric',
-        'stock' => 'required|integer',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
