@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
 
         //Registros
         for ($i=0; $i < 10; $i++) {
-            \App\Models\Reserva::factory(100000)->create()->each(function ($itemReserva, $keyReserva){
+            \App\Models\Reserva::factory(10000)->create()->each(function ($itemReserva, $keyReserva){
                 if($itemReserva->estado>2){
                     $this->sub = 0;
                     $service = \App\Models\Servicio::create([
