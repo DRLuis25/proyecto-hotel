@@ -22,12 +22,11 @@ class DatabaseSeeder extends Seeder
             'email'=>'admin@gmail.com',
             'password'=>'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
         ]);
-        //Millón de usuarios xd
-        for ($i=0; $i < 2; $i++) {
-            \App\Models\User::factory(200)->create();
-        }
-        //Productos
-        \App\Models\Producto::factory(200)->create();
+        \App\Models\User::factory(50)->create();
+
+        \App\Models\TipoProducto::factory(8)->create(); //! falta
+        //Productos: necesita categoria
+        \App\Models\Producto::factory(122)->create();
 
         //Empleados: necesita área y cargo
         \App\Models\Area::factory(10)->create();
@@ -48,7 +47,7 @@ class DatabaseSeeder extends Seeder
 
         //Registros
         for ($i=0; $i < 10; $i++) {
-            \App\Models\Reserva::factory(10000)->create()->each(function ($itemReserva, $keyReserva){
+            \App\Models\Reserva::factory(100000)->create()->each(function ($itemReserva, $keyReserva){
                 if($itemReserva->estado>2){
                     $this->sub = 0;
                     $service = \App\Models\Servicio::create([
@@ -73,7 +72,7 @@ class DatabaseSeeder extends Seeder
                             $p = rand($min = 20, $max = 200);
                             \App\Models\ServicioDetalle::create([
                                 'servicio_id'=>$service->id,
-                                'producto_id'=>rand($min = 1, $max = 200),
+                                'producto_id'=>rand($min = 1, $max = 122),
                                 'precio' => $p,
                             ]);
                             $sum += $p;

@@ -34,6 +34,7 @@ class Producto extends Model
 
 
     public $fillable = [
+        'tipo_producto_id',
         'nombre',
         'descripcion',
         'precio',
@@ -46,6 +47,7 @@ class Producto extends Model
      * @var array
      */
     protected $casts = [
+        'tipo_producto_id' => 'integer',
         'id' => 'integer',
         'nombre' => 'string',
         'descripcion' => 'string',
@@ -58,6 +60,7 @@ class Producto extends Model
      * @var array
      */
     public static $rules = [
+        'tipo_producto_id' => 'required|numeric',
         'nombre' => 'required|string|max:255',
         'descripcion' => 'required|string|max:255',
         'precio' => 'required|numeric',
@@ -72,5 +75,13 @@ class Producto extends Model
     public function servicios()
     {
         return $this->belongsToMany(\App\Models\Servicio::class, 'servicio_detalles');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function tipo_producto()
+    {
+        return $this->belongsTo(\App\Models\TipoProducto::class, 'tipo_producto_id');
     }
 }

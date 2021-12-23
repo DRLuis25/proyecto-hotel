@@ -52,3 +52,5 @@ Route::resource('cargos', App\Http\Controllers\API\CargoAPIController::class);
 Route::resource('empleados', App\Http\Controllers\API\EmpleadoAPIController::class);
 
 Route::resource('reservas', App\Http\Controllers\API\ReservaAPIController::class);
+
+Route::resource('tipo_productos', App\Http\Controllers\API\TipoProductoAPIController::class);

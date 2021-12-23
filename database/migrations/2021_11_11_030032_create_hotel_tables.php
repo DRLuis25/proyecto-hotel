@@ -76,13 +76,21 @@ class CreateHotelTables extends Migration
             $table->foreign('criterio_id')->references('id')->on('criterios');
             $table->foreign('reserva_id')->references('id')->on('reservas');
         });*/
+        Schema::create('tipo_productos', function (Blueprint $table) { //extra
+            $table->id();
+            $table->longText('descripcion');
+            $table->timestamps();
+            $table->softDeletes();
+        });
         Schema::create('productos', function (Blueprint $table) { //extra
             $table->id();
+            $table->unsignedBigInteger('tipo_producto_id');
             $table->string('nombre');
             $table->longText('descripcion');//accesos a campo, piscina, recreación, desayuno almuerzo cena
             $table->decimal('precio');
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('tipo_producto_id')->references('id')->on('tipo_productos');
         });
         Schema::create('medio_pagos', function (Blueprint $table) {
             $table->id();

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Producto;
+use App\Models\TipoProducto;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ProductoFactory extends Factory
+class TipoProductoFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Producto::class;
+    protected $model = TipoProducto::class;
 
     /**
      * Define the model's default state.
@@ -21,12 +21,9 @@ class ProductoFactory extends Factory
      */
     public function definition()
     {
-        $fecha = $this->faker->dateTimeThisMonth($max='now');
+        $fecha = $this->faker->dateTimeThisYear($max='now');
         return [
-            'tipo_producto_id' => $this->faker->numberBetween($min = 1,$max = 8),
-            'nombre' => $this->faker->city,
-            'descripcion' => $this->faker->paragraph($nb = 8),
-            'precio' => $this->faker->numberBetween($min = 1, $max = 100),
+            'descripcion' => $this->faker->word,
             'created_at' => $fecha,
             'updated_at' => $fecha,
             'deleted_at' => null
